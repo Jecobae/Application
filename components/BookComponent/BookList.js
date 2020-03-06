@@ -41,27 +41,29 @@ export default function BookList() {
     setbook();
   }, []);
   return (
-      <FlatList
-        horizontal={true}
-        data={DATA}
-        renderItem={({item}) => <_renderItem item={item} />}
-      />
+    <FlatList
+      horizontal={true}
+      data={DATA}
+      renderItem={_renderItem}
+      keyExtractor={item => item.name}
+    />
   );
 }
 
 const style = StyleSheet.create({
-  container:{
-    flex:1,
-    flexDirection: 'column',
-    flexWrap: 'wrap',
-    alignItems: 'center',},
-  imgcontainer: {
-    flex: 2,
-    width:300,
+  container: {
+    flex: 1,
     flexDirection: 'column',
     flexWrap: 'wrap',
     alignItems: 'center',
-    justifyContent:'center',
+  },
+  imgcontainer: {
+    flex: 2,
+    width: 300,
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#FFF',
     paddingVertical: 5,
     paddingHorizontal: 10,
@@ -71,9 +73,9 @@ const style = StyleSheet.create({
     marginTop: 10,
     marginHorizontal: 10,
   },
-  decContainer:{
+  decContainer: {
     flex: 1,
-    width:330,
+    width: 330,
     flexDirection: 'column',
     flexWrap: 'wrap',
     alignItems: 'center',
@@ -90,13 +92,13 @@ const style = StyleSheet.create({
   bookimg: {
     height: 400,
     width: '100%',
-    borderColor:'#BCBCBC',
-    borderWidth:0.3,
+    borderColor: '#BCBCBC',
+    borderWidth: 0.3,
     resizeMode: 'contain',
   },
   bookname: {
     flex: 1,
-    textAlign:'center',
+    textAlign: 'center',
     fontSize: 25,
   },
   bookdesc: {

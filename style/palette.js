@@ -5,6 +5,7 @@ const palette = {
   backgroundColor: '#282a36',
   tabColor: '#21222c',
   borderColor: '#e8e8e8',
+  inactiveTintColor: '#9dc4bc',
 };
 
 export default palette;

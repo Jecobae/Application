@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {Image, View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {normalize} from 'react-native-elements';
@@ -12,7 +13,7 @@ const MainHeader = ({navigation}) => {
           style={style.headerLogo}
         />
       </TouchableOpacity>
-      <View style={{...style.headerBox, alignItems: 'center'}}>
+      <View style={style.headerBox}>
         {/* <TouchableOpacity style={{marginHorizontal: 18}}>
           <Text style={style.headerMenu}> </Text>
         </TouchableOpacity> */}
@@ -38,11 +39,11 @@ const style = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 5,
     justifyContent: 'space-around',
+    alignItems: 'center',
   },
   headerLogo: {
     width: 70,
     height: 50,
-    // marginLeft: 5,
     marginRight: 15,
   },
   headerMenu: {

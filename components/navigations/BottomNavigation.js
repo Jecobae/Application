@@ -2,15 +2,15 @@ import React from 'react';
 import {Platform} from 'react-native';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import HomeStackNavigation from './StackNavigators/HomeStackNavigation';
-import BookList from './BookComponent/BookList';
+import BookList from '../BookComponent/BookList';
 import CheatSheet from './StackNavigators/CheatSheetStackNavigation';
 import LectureStackNavigation from './StackNavigators/LectureStackNavigation';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Icon2 from 'react-native-vector-icons/MaterialIcons';
-import palette from '../style/palette';
+import EntypoIcons from 'react-native-vector-icons/Entypo';
+import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import palette from '../../style/palette';
 import {normalize} from 'react-native-elements';
 
-const iconSize = 30;
+const iconSize = 28;
 
 const BottomNavi = createBottomTabNavigator(
   {
@@ -19,7 +19,7 @@ const BottomNavi = createBottomTabNavigator(
       navigationOptions: {
         tabBarLabel: '홈',
         tabBarIcon: ({tintColor}) => (
-          <Icon
+          <EntypoIcons
             name={'home'}
             color={tintColor}
             size={iconSize}
@@ -31,13 +31,13 @@ const BottomNavi = createBottomTabNavigator(
     Lecture: {
       screen: LectureStackNavigation,
       navigationOptions: {
-        tabBarLabel: '카테고리',
+        tabBarLabel: '강좌 보기',
         tabBarIcon: ({tintColor}) => (
-          <Icon
+          <MaterialIcons
             name={'playlist-play'}
             color={tintColor}
-            size={iconSize}
-            style={{width: iconSize, height: iconSize}}
+            size={35}
+            style={{width: 35, height: 30}}
           />
         ),
       },
@@ -45,24 +45,10 @@ const BottomNavi = createBottomTabNavigator(
     Book: {
       screen: BookList,
       navigationOptions: {
-        drawerLabel: '책 목록',
-        tabBarIcon: ({tintColor}) => (
-          <Icon
-            name={'book-open-outline'}
-            color={tintColor}
-            size={iconSize}
-            style={{width: iconSize, height: iconSize}}
-          />
-        ),
-      },
-    },
-    Sheet: {
-      screen: CheatSheet,
-      navigationOptions: {
-        title: '프리미엄',
+        tabBarLabel: 'Book',
         tabBarIcon: ({tintColor, focused}) => (
-          <Icon2
-            name={focused ? 'ondemand-video' : 'personal-video'}
+          <MaterialIcons
+            name={!focused ? 'book-open' : 'book-open-outline'}
             color={tintColor}
             size={iconSize}
             style={{width: iconSize, height: iconSize}}
@@ -70,15 +56,29 @@ const BottomNavi = createBottomTabNavigator(
         ),
       },
     },
+    // Sheet: {
+    //   screen: CheatSheet,
+    //   navigationOptions: {
+    //     title: '프리미엄',
+    //     tabBarIcon: ({tintColor, focused}) => (
+    //       <MaterialIcons
+    //         name={focused ? 'ondemand-video' : 'personal-video'}
+    //         color={tintColor}
+    //         size={iconSize}
+    //         style={{width: iconSize, height: iconSize}}
+    //       />
+    //     ),
+    //   },
+    // },
   },
   {
     tabBarOptions: {
-      activeTintColor: palette.mainColor,
-      inactiveTintColor: '#a8a8a8',
+      activeTintColor: palette.textColor,
+      inactiveTintColor: palette.inactiveTintColor,
       style: {
-        backgroundColor: palette.textColor,
+        backgroundColor: palette.mainColor,
         borderTopWidth: 0,
-        height: normalize(Platform.OS === 'ios' ? 40 : 45),
+        height: normalize(Platform.OS === 'ios' ? 42 : 48),
         paddingVertical: 8,
       },
     },

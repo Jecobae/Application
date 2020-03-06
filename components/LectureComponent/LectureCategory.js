@@ -45,7 +45,6 @@ const Category = ({navigation}) => {
           renderItem={renderList}
           keyExtractor={item => item.name}
           showsHorizontalScrollIndicator={false}
-          style={{height: '90%'}}
         />
       </SafeAreaView>
     </View>
@@ -54,28 +53,27 @@ const Category = ({navigation}) => {
 
 const style = StyleSheet.create({
   container: {
-    marginTop: 5,
-    paddingHorizontal: 20,
-    paddingVertical: 20,
+    paddingHorizontal: 30,
     backgroundColor: '#FFFFFF',
   },
   title: {
-    fontSize: normalize(18),
+    fontSize: normalize(15),
     fontWeight: 'bold',
     marginBottom: 5,
   },
   banner: {
     flexDirection: 'row',
-    padding: 7,
     backgroundColor: palette.mainColor,
     borderColor: palette.mainColor,
     borderWidth: 0.4,
     borderRadius: 15,
     marginVertical: 5,
+    paddingHorizontal: 25,
+    paddingVertical: 5,
   },
   imgBox: {
-    width: 60,
-    height: 60,
+    width: 55,
+    height: 55,
     backgroundColor: '#FFFFFF',
     borderColor: palette.mainColor,
     borderRadius: 50,
@@ -84,17 +82,18 @@ const style = StyleSheet.create({
     alignItems: 'center',
   },
   bannerTitle: {
-    fontSize: normalize(16),
+    fontSize: normalize(15),
     fontWeight: 'bold',
     color: palette.textColor,
   },
   bannerExplain: {
-    color: palette.textColor,
-    fontSize: normalize(10),
+    color: '#a5d5cb',
+    lineHeight: normalize(15),
+    fontSize: normalize(9),
   },
   img: {
-    width: 45,
-    height: 45,
+    width: 40,
+    height: 40,
   },
 });
 

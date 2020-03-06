@@ -1,0 +1,1 @@
+ //TODO Video 터치 시 해당 id에 해당하는 info를 Realm에 insert후 출력
