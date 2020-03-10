@@ -10,57 +10,22 @@ import {
   TouchableHighlight,
   SafeAreaView,
 } from 'react-native';
-import getPlayList from '../../service/DataProcessor';
+import dataCralwer from '../../lib/DataCrawler';
 import {normalize} from 'react-native-elements';
 import Admob from '../Admob';
 import palette from '../../style/palette';
 
 const LectureList = ({navigation}) => {
   const [playList, setPlayList] = useState(null);
-  const [pageToken, setPageToken] = useState(null);
-  const [prevDisabled, setPrevDisabled] = useState(1);
-  const [nextDisabled, setNextDisabled] = useState(1);
+  const [plId] = useState(navigation.getParam('plId'));
 
   const _getPlayList = async () => {
-    setPlayList(await getPlayList(`${navigation.getParam('plId')}`, pageToken));
+    setPlayList(await dataCralwer(plId));
   };
+
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     _getPlayList();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pageToken]);
-
-  const _setBtnState = (prevPageToken, nextPageToken) => {
-    !prevPageToken ? setPrevDisabled(0) : setPrevDisabled(1);
-    !nextPageToken ? setNextDisabled(0) : setNextDisabled(1);
-  };
-
-  const PrevNextButton = () => {
-    const {
-      pageToken: {nextPageToken, prevPageToken},
-    } = playList;
-    useEffect(() => {
-      _setBtnState(prevPageToken, nextPageToken);
-    }, [nextPageToken, prevPageToken]);
-    return (
-      <View style={style.buttonWrap}>
-        <TouchableOpacity
-          style={{...style.button, opacity: prevDisabled}}
-          onPress={() =>
-            !prevPageToken ? {} : setPageToken(`pageToken=${prevPageToken}`)
-          }>
-          <Text>이전</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{...style.button, opacity: nextDisabled}}
-          onPress={() =>
-            !nextPageToken ? {} : setPageToken(`pageToken=${nextPageToken}`)
-          }>
-          <Text>다음</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  };
+  }, []);
 
   const renderVideo = ({item: {title, img, desc, date, videoId}}) => (
     <TouchableHighlight
@@ -68,6 +33,7 @@ const LectureList = ({navigation}) => {
         navigation.navigate('LectureVideo', {
           videoId: videoId,
           title: title,
+          img: img,
           desc: desc,
         })
       }
@@ -123,9 +89,6 @@ const LectureList = ({navigation}) => {
           style={{flex: 8}}
         />
       </SafeAreaView>
-      <View style={{flex: 1}}>
-        <PrevNextButton />
-      </View>
       <Admob />
     </View>
   );

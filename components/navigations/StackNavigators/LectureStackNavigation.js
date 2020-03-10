@@ -1,8 +1,7 @@
 import {createStackNavigator} from 'react-navigation-stack';
-import LectureCategory from '../LectureComponent/LectureCategory';
-import LectureList from '../LectureComponent/LectureList';
-import LectureVideo from '../LectureComponent/LectureVideo';
-import MainHeader from '../MainHeader';
+import LectureCategory from '../../LectureComponent/LectureCategory';
+import LectureList from '../../LectureComponent/LectureList';
+import LectureVideo from '../../LectureComponent/LectureVideo';
 
 const LectureStackNavigation = createStackNavigator(
   {

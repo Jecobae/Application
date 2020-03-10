@@ -1,27 +1,29 @@
-import React, {reducer} from 'react';
+import React from 'react';
 import {SafeAreaView, ScrollView, Platform} from 'react-native';
-import HomeVideoComponents from './HomeVideoComponents';
-import MainHeader from '../MainHeader';
-import * as env from '../../env';
-import {} from 'react-native-gesture-handler';
+import HomeVideoComponent from './HomeVideoComponent';
+import PlayingVideoComponent from './PlayingVideoComponent';
 
 const Home = ({navigation}) => {
   return (
     <SafeAreaView
-      style={{flex: 1, backgroundColor: '#f9f9f9', paddingHorizontal: 8}}>
+      style={{flex: 1, backgroundColor: '#FFF', paddingHorizontal: 8}}>
       <ScrollView>
-        <MainHeader navigation={navigation} />
-        <HomeVideoComponents
+        <PlayingVideoComponent
           navigation={navigation}
-          playListId={env.PL_POP}
-          bannerTitle={'시청 중인 강좌'}
-          bannerDesc={'"마지막으로 시청한 영상들 입니다"'}
+          bannerTitle={'최근 시청 강좌'}
+          bannerDesc={'"최근에 시청한 강좌에요"'}
         />
-        <HomeVideoComponents
+        <HomeVideoComponent
           navigation={navigation}
-          playListId={env.PL_PYTHON}
+          playListId={'POP'}
           bannerTitle={'인기 강좌'}
-          bannerDesc={'"제코베에 인기 영상들을 모았어요"'}
+          bannerDesc={'"제코베 인기 강좌들을 모았어요"'}
+        />
+        <HomeVideoComponent
+          navigation={navigation}
+          playListId={'DJANGO'}
+          bannerTitle={"제코베's 강좌"}
+          bannerDesc={'"제코베에서만 볼 수 있는 강좌들을 모았어요"'}
         />
       </ScrollView>
     </SafeAreaView>

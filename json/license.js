@@ -49,10 +49,9 @@ let json = {
         'https://github.com/react-navigation/navigation-ex/tree/master/packages/native',
     },
     {
-      name: '@react-navigation/native',
+      name: '@react-native-community/async-storage',
       license: 'MIT License',
-      agreement:
-        'https://github.com/react-navigation/navigation-ex/tree/master/packages/native',
+      agreement: 'https://github.com/react-native-community/async-storage',
     },
     {
       name: 'react',

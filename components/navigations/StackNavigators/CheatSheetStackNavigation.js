@@ -1,6 +1,6 @@
 import {createStackNavigator} from 'react-navigation-stack';
-import SheetMain from '../CheatSheet/SheetMain';
-import Sheet from '../CheatSheet/Sheet';
+import SheetMain from '../../CheatSheet/SheetMain';
+import Sheet from '../../CheatSheet/Sheet';
 const MainStack = createStackNavigator(
   {
     SheetMain: {
@@ -12,6 +12,7 @@ const MainStack = createStackNavigator(
   },
   {
     headerMode: 'none',
+    initialRouteName: 'SheetMain',
   },
 );
 
