@@ -33,6 +33,7 @@ const LectureList = ({navigation}) => {
         navigation.navigate('LectureVideo', {
           videoId: videoId,
           title: title,
+          img: img,
           desc: desc,
         })
       }

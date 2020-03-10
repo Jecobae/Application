@@ -28,13 +28,13 @@ const HomeVideoComponent = ({
     _getPlayList();
   }, []);
 
-
   const renderVideo = ({item: {title, img, desc, date, videoId}}) => (
     <TouchableHighlight
       onPress={() =>
         navigation.navigate('LectureVideo', {
           videoId: videoId,
           title: title,
+          img: img,
           desc: desc,
         })
       }
