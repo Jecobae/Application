@@ -25,6 +25,7 @@ const PlyingVideoComponents = ({navigation, bannerTitle, bannerDesc}) => {
 
   const renderVideo = ({item}) => (
     <TouchableHighlight
+      activeOpacity={0.5}
       onPress={() =>
         navigation.navigate('LectureVideo', {
           videoId: item.videoId,

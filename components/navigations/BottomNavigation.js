@@ -3,7 +3,6 @@ import {Platform} from 'react-native';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import HomeStackNavigation from './StackNavigators/HomeStackNavigation';
 import BookList from '../BookComponent/BookList';
-import CheatSheet from './StackNavigators/CheatSheetStackNavigation';
 import LectureStackNavigation from './StackNavigators/LectureStackNavigation';
 import EntypoIcons from 'react-native-vector-icons/Entypo';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -45,7 +44,7 @@ const BottomNavi = createBottomTabNavigator(
     Book: {
       screen: BookList,
       navigationOptions: {
-        tabBarLabel: 'Book',
+        tabBarLabel: 'Books',
         tabBarIcon: ({tintColor, focused}) => (
           <MaterialIcons
             name={!focused ? 'book-open' : 'book-open-outline'}
@@ -56,6 +55,7 @@ const BottomNavi = createBottomTabNavigator(
         ),
       },
     },
+    //TODO 프리미엄 강좌
     // Sheet: {
     //   screen: CheatSheet,
     //   navigationOptions: {
@@ -72,6 +72,8 @@ const BottomNavi = createBottomTabNavigator(
     // },
   },
   {
+    resetOnBlur: true,
+    lazy: true,
     tabBarOptions: {
       activeTintColor: palette.textColor,
       inactiveTintColor: palette.inactiveTintColor,

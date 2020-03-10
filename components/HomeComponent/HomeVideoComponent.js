@@ -30,6 +30,7 @@ const HomeVideoComponent = ({
 
   const renderVideo = ({item: {title, img, desc, date, videoId}}) => (
     <TouchableHighlight
+      activeOpacity={0.5}
       onPress={() =>
         navigation.navigate('LectureVideo', {
           videoId: videoId,

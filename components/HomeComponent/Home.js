@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {SafeAreaView, ScrollView, Platform} from 'react-native';
 import HomeVideoComponent from './HomeVideoComponent';
 import PlayingVideoComponent from './PlayingVideoComponent';
