@@ -43,14 +43,14 @@ const SheetMain = ({navigation}) => {
   return (
     <View style={style.container}>
       <Text style={style.title}>치트시트</Text>
-      <ScrollView style={{height: '65%'}}>
-        <FlatList
-          data={DATA}
-          renderItem={({item}) => <_renderItem item={item} />}
-          numColumns={3}
-          style={{marginBottom: 50}}
-        />
-      </ScrollView>
+      <FlatList
+        data={DATA}
+        renderItem={_renderItem}
+        keyExtractor={item => item.name}
+        showsHorizontalScrollIndicator={false}
+        numColumns={3}
+        style={{marginBottom: 50}}
+      />
       <View style={{flex: 1}}>
         <Admob />
       </View>

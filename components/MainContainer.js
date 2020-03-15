@@ -1,21 +1,15 @@
 import React from 'react';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import BottomNavigation from './BottomNavigation';
+import BottomNavigation from './navigations/BottomNavigation';
 import License from './License';
 import MainHeader from './MainHeader';
-import CheatSheet from './StackNavigators/CheatSheetStackNavigation';
-import palette from '../style/palette';
+import CheatSheet from './navigations/StackNavigators/CheatSheetStackNavigation';
 
 const HomeStackNavigator = createStackNavigator(
   {
     Home: {
       screen: BottomNavigation,
-      navigationOptions: ({navigation}) => ({
-        // header: () => <MainHeader navigation={navigation} />,
-        headerShown: false,
-      }),
     },
     License: {
       screen: License,
@@ -31,12 +25,9 @@ const HomeStackNavigator = createStackNavigator(
     },
   },
   {
-    defaultNavigationOptions: {
-      headerStyle: {
-        // backgroundColor: palette.tabColor,
-      },
-      // headerTintColor: palette.textColor,
-    },
+    defaultNavigationOptions: ({navigation}) => ({
+      header: () => <MainHeader navigation={navigation} />,
+    }),
   },
 );
 
