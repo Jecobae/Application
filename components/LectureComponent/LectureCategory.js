@@ -58,7 +58,8 @@ const style = StyleSheet.create({
   title: {
     fontSize: normalize(15),
     fontWeight: 'bold',
-    marginBottom: 5,
+    marginLeft: 5,
+    marginVertical: 8,
   },
   banner: {
     flexDirection: 'row',

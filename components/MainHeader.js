@@ -14,8 +14,8 @@ const MainHeader = ({navigation}) => {
         />
       </TouchableOpacity>
       <View style={style.headerBox}>
-        {/* <TouchableOpacity style={{marginHorizontal: 18}}>
-          <Text style={style.headerMenu}> </Text>
+        {/* <TouchableOpacity style={{marginHorizontal: 15}}>
+          <Text style={style.headerMenu}>찜</Text>
         </TouchableOpacity> */}
         <TouchableOpacity
           style={{marginHorizontal: 20}}
@@ -44,7 +44,7 @@ const style = StyleSheet.create({
   headerLogo: {
     width: 70,
     height: 50,
-    marginRight: 15,
+    marginRight: 5,
   },
   headerMenu: {
     fontSize: normalize(13),

@@ -1,10 +1,14 @@
 import React from 'react';
 import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
-import BottomNavigation from './navigations/BottomNavigation';
-import License from './License';
-import MainHeader from './MainHeader';
-import CheatSheet from './navigations/StackNavigators/CheatSheetStackNavigation';
+import {
+  createStackNavigator,
+  CardStyleInterpolators,
+  HeaderStyleInterpolators,
+} from 'react-navigation-stack';
+import BottomNavigation from '../BottomNavigation';
+import License from '../../License';
+import MainHeader from '../../MainHeader';
+import CheatSheet from './CheatSheetStackNavigation';
 
 const HomeStackNavigator = createStackNavigator(
   {
@@ -26,7 +30,11 @@ const HomeStackNavigator = createStackNavigator(
   },
   {
     defaultNavigationOptions: ({navigation}) => ({
+      gestureEnabled: true,
+      gestureDirection: 'horizontal',
       header: () => <MainHeader navigation={navigation} />,
+      cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+      headerStyleInterpolator: HeaderStyleInterpolators.forUIKit,
     }),
   },
 );

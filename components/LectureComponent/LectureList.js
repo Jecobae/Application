@@ -79,7 +79,7 @@ const LectureList = ({navigation}) => {
       <ActivityIndicator size="large" />
     </View>
   ) : (
-    <View style={{flex: 1, backgroundColor: '#f7f7f7'}}>
+    <View style={{flex: 1, backgroundColor: '#FFF'}}>
       <SafeAreaView style={{flex: 10}}>
         <FlatList
           data={playList.videoInfo}
@@ -121,24 +121,6 @@ const style = StyleSheet.create({
   date: {
     color: '#8a8a8a',
     fontSize: normalize(12),
-  },
-  buttonWrap: {
-    flex: 1,
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    marginVertical: 5,
-    // justifyContent: 'space-between'
-  },
-  button: {
-    flex: 0.35,
-    alignItems: 'center',
-    paddingVertical: 10,
-    borderRadius: 2,
-    borderWidth: 0.8,
-    borderColor: '#dedede',
   },
   header: {
     flex: 1,
