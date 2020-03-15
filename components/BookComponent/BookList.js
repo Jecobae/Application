@@ -20,11 +20,12 @@ const _renderItem = ({item}) => {
         <Image style={style.bookimg} source={{uri: item.image}} />
 
         <Text style={style.tail}>이미지를 클릭하면 사이트로 이동합니다</Text>
+        
       </TouchableOpacity>
       <View style={style.decContainer}>
         <Text>책 정보</Text>
         <Text style={style.bookname}>{item.name}</Text>
-        <Text style={style.bookdesc}>{item.desc}</Text>
+        {/* <Text style={style.bookdesc}>{item.desc}</Text> */}
       </View>
     </View>
   );
@@ -51,12 +52,13 @@ export default function BookList() {
 
 const style = StyleSheet.create({
   container:{
-    flex:1,
+    marginTop:'20%',
+    flex:3,
     flexDirection: 'column',
     flexWrap: 'wrap',
     alignItems: 'center',},
   imgcontainer: {
-    flex: 2,
+    flex: 5,
     width:300,
     flexDirection: 'column',
     flexWrap: 'wrap',
@@ -73,7 +75,8 @@ const style = StyleSheet.create({
   },
   decContainer:{
     flex: 1,
-    width:330,
+    width:300,
+    alignContent:'center',
     flexDirection: 'column',
     flexWrap: 'wrap',
     alignItems: 'center',
@@ -81,8 +84,8 @@ const style = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 10,
     borderRadius: 7,
-    borderWidth: 0.3,
-    borderColor: '#BCBCBC',
+    // borderWidth: 0.3,
+    // borderColor: '#BCBCBC',
     marginTop: 10,
     marginBottom: 10,
     marginHorizontal: 10,
@@ -90,8 +93,8 @@ const style = StyleSheet.create({
   bookimg: {
     height: 400,
     width: '100%',
-    borderColor:'#BCBCBC',
-    borderWidth:0.3,
+    // borderColor:'#BCBCBC',
+    // borderWidth:0.3,
     resizeMode: 'contain',
   },
   bookname: {
@@ -100,6 +103,7 @@ const style = StyleSheet.create({
     fontSize: 25,
   },
   bookdesc: {
+    textAlign:'center',
     flex: 2,
     fontSize: 17,
   },
