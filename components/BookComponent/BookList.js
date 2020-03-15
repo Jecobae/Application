@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {useState, useEffect} from 'react';
 import {
   View,
@@ -10,6 +10,7 @@ import {
   Linking,
 } from 'react-native';
 import data from '../tool/data';
+import Admob from '../Admob';
 
 const _renderItem = ({item}) => {
   return (
@@ -18,14 +19,10 @@ const _renderItem = ({item}) => {
         style={style.imgcontainer}
         onPress={() => Linking.openURL(item.link)}>
         <Image style={style.bookimg} source={{uri: item.image}} />
-
-        <Text style={style.tail}>이미지를 클릭하면 사이트로 이동합니다</Text>
       </TouchableOpacity>
-      <View style={style.decContainer}>
-        <Text>책 정보</Text>
+      
+      {/* <Text style={style.tail}>이미지를 클릭하면 사이트로 이동합니다</Text> */}
         <Text style={style.bookname}>{item.name}</Text>
-        <Text style={style.bookdesc}>{item.desc}</Text>
-      </View>
     </View>
   );
 };
@@ -41,37 +38,38 @@ export default function BookList() {
     setbook();
   }, []);
   return (
-    <FlatList
-      horizontal={true}
-      data={DATA}
-      renderItem={_renderItem}
-      keyExtractor={item => item.name}
-    />
+    <View style={{flex:1, backgroundColor:'#FFF'}}>
+      <View style={{flex:5}}>
+        <FlatList
+          // horizontal={true}
+          data={DATA}
+          numColumns={2}
+          renderItem={_renderItem}
+          keyExtractor={item => item.name}
+          />
+        </View>
+        <Admob/>
+      </View>
   );
 }
 
 const style = StyleSheet.create({
   container: {
+    backgroundColor:'#FFF',
     flex: 1,
-    flexDirection: 'column',
+    // flexDirection: 'column',
     flexWrap: 'wrap',
     alignItems: 'center',
+    alignContent:'center'
   },
   imgcontainer: {
-    flex: 2,
-    width: 300,
-    flexDirection: 'column',
+    marginTop:30,
+    flex: 5,
+    width: '100%',
+    height:'90%',
     flexWrap: 'wrap',
     alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#FFF',
-    paddingVertical: 5,
-    paddingHorizontal: 10,
-    borderRadius: 7,
-    borderWidth: 0.3,
-    borderColor: '#BCBCBC',
-    marginTop: 10,
-    marginHorizontal: 10,
+    // paddingHorizontal: 3,
   },
   decContainer: {
     flex: 1,
@@ -83,27 +81,25 @@ const style = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 10,
     borderRadius: 7,
-    borderWidth: 0.3,
-    borderColor: '#BCBCBC',
+    // borderWidth: 0.3,
+    // borderColor: '#BCBCBC',
     marginTop: 10,
-    marginBottom: 10,
+    // marginBottom: 50,
     marginHorizontal: 10,
   },
   bookimg: {
-    height: 400,
+    height: 220,
     width: '100%',
-    borderColor: '#BCBCBC',
-    borderWidth: 0.3,
+    // borderColor: '#BCBCBC',
+    // borderWidth: 0.3,
     resizeMode: 'contain',
   },
   bookname: {
     flex: 1,
+    width:'75%',
     textAlign: 'center',
-    fontSize: 25,
-  },
-  bookdesc: {
-    flex: 2,
-    fontSize: 17,
+    fontWeight:'bold',
+    fontSize: 15,
   },
   tail: {
     fontStyle: 'italic',
