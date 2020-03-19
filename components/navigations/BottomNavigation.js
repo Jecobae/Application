@@ -80,7 +80,7 @@ const BottomNavi = createBottomTabNavigator(
       style: {
         backgroundColor: palette.mainColor,
         borderTopWidth: 0,
-        height: normalize(Platform.OS === 'ios' ? 42 : 48),
+        height: normalize(Platform.OS === 'ios' ? 45 : 50),
         paddingVertical: 8,
       },
     },

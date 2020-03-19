@@ -21,7 +21,7 @@ const Home = ({navigation}) => {
         />
         <HomeVideoComponent
           navigation={navigation}
-          playListId={'DJANGO'}
+          playListId={'JECOBAE_APP'}
           bannerTitle={"제코베's 강좌"}
           bannerDesc={'"제코베에서만 볼 수 있는 강좌들을 모았어요"'}
         />

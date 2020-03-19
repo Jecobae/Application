@@ -32,6 +32,7 @@ const LectureVideo = ({navigation}) => {
         <YouTube
           apiKey={env.YOUTUBE_API_KEY}
           videoId={value('videoId')}
+          controls={1}
           style={{alignSelf: 'stretch', height: 270}}
           onChangeState={e => _setVideoState(e)}
         />

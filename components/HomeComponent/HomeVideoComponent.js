@@ -57,14 +57,18 @@ const HomeVideoComponent = ({
   );
 
   return !playList ? (
-    <View
-      style={{
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingTop: 20,
-        flex: 1,
-      }}>
-      <ActivityIndicator size="large" />
+    <View style={style.bannerHeader}>
+      <Text style={style.bannerTitle}>{bannerTitle}</Text>
+      <Text style={style.date}>{bannerDesc}</Text>
+      <View
+        style={{
+          alignItems: 'center',
+          justifyContent: 'center',
+          paddingTop: 20,
+          flex: 1,
+        }}>
+        <ActivityIndicator size="large" />
+      </View>
     </View>
   ) : (
     <View style={style.bannerHeader}>
@@ -108,6 +112,7 @@ const style = StyleSheet.create({
   bannerHeader: {
     marginTop: 15,
     marginLeft: 10,
+    marginBottom: 5,
   },
   bannerTitle: {
     fontSize: normalize(17),

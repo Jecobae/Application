@@ -11,6 +11,7 @@ import {
 import palette from '../../style/palette';
 import category from '../../json/category';
 import {normalize} from 'react-native-elements';
+import {ScrollView} from 'react-native-gesture-handler';
 
 const categoryList = Object.values(category.lecture);
 
@@ -36,17 +37,16 @@ const Category = ({navigation}) => {
     </TouchableOpacity>
   );
   return (
-    <View style={{flex: 1, backgroundColor: '#FFFFFF'}}>
-      <SafeAreaView style={style.container}>
-        <Text style={style.title}>카테고리</Text>
-        <FlatList
-          data={categoryList}
-          renderItem={renderList}
-          keyExtractor={item => item.name}
-          showsHorizontalScrollIndicator={false}
-        />
-      </SafeAreaView>
-    </View>
+    <ScrollView style={style.container}>
+      <Text style={style.title}>카테고리</Text>
+      <FlatList
+        data={categoryList}
+        renderItem={renderList}
+        keyExtractor={item => item.name}
+        showsHorizontalScrollIndicator={false}
+        controls={1}
+      />
+    </ScrollView>
   );
 };
 
