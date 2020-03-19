@@ -7,12 +7,12 @@ import palette from '../style/palette';
 const MainHeader = ({navigation}) => {
   return (
     <View style={style.headerBox}>
-      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-        <Image
-          source={require('./../images/logo.png')}
-          style={style.headerLogo}
-        />
-      </TouchableOpacity>
+      {/* <TouchableOpacity onPress={() => navigation.navigate('Home')}> */}
+      <Image
+        source={require('./../images/logo.png')}
+        style={style.headerLogo}
+      />
+      {/* </TouchableOpacity> */}
       <View style={style.headerBox}>
         {/* <TouchableOpacity style={{marginHorizontal: 15}}>
           <Text style={style.headerMenu}>찜</Text>

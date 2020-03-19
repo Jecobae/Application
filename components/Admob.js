@@ -8,12 +8,8 @@ function Admob() {
   return (
     <SafeAreaView style={style.container}>
       <BannerAd
-        // {
-        //   ...( Platform.OS ==='android' ? {
-        //     unitId: env.AD_BANNER_ID
-        //   }: {
-        //     unitId: TestIds.BANNER
-        //   })
+        // unitId={
+        //   Platform.OS === 'android' ? env.AD_BANNER_ID : env.IOS_BANNER_ID
         // }
         unitId={TestIds.BANNER}
         size={BannerAdSize.BANNER}
