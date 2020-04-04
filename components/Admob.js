@@ -1,26 +1,25 @@
 import React from 'react';
-import {Platform, View, StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {BannerAd, BannerAdSize, TestIds} from '@react-native-firebase/admob';
-import * as env from '../env';
-import {SafeAreaView} from 'react-navigation';
+import env from '../env.config';
 
 function Admob() {
   return (
-    <SafeAreaView style={style.container}>
+    <View style={style.container}>
       <BannerAd
-        // unitId={
-        //   Platform.OS === 'android' ? env.AD_BANNER_ID : env.IOS_BANNER_ID
-        // }
-        unitId={TestIds.BANNER}
+        unitId={env.admob.bannerId}
         size={BannerAdSize.BANNER}
         requestOptions={{
           requestNonPersonalizedAdsOnly: true,
+        }}
+        onAdLoaded={() => {
+          console.log('Advert loaded');
         }}
         onAdFailedToLoad={error => {
           console.error('Advert failed to load: ', error);
         }}
       />
-    </SafeAreaView>
+    </View>
   );
 }
 

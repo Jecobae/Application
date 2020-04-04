@@ -5,7 +5,6 @@ import {
   StyleSheet,
   Image,
   FlatList,
-  SafeAreaView,
   TouchableOpacity,
 } from 'react-native';
 import palette from '../../style/palette';
@@ -72,7 +71,7 @@ const style = StyleSheet.create({
     paddingVertical: 5,
   },
   imgBox: {
-    width: 55,
+    width: 56,
     height: 55,
     backgroundColor: '#FFFFFF',
     borderColor: palette.mainColor,

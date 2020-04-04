@@ -1,12 +1,15 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, Platform} from 'react-native';
+import {SafeAreaView, ScrollView, Platform, View} from 'react-native';
 import HomeVideoComponent from './HomeVideoComponent';
 import PlayingVideoComponent from './PlayingVideoComponent';
+import Admob from '../Admob';
+import env from '../../env.config';
 
 const Home = ({navigation}) => {
+  // console.log(env);
   return (
     <SafeAreaView
-      style={{flex: 1, backgroundColor: '#FFF', paddingHorizontal: 8}}>
+      style={{flex: 1, backgroundColor: '#FFF', paddingHorizontal: 8 }}>
       <ScrollView>
         <PlayingVideoComponent
           navigation={navigation}
@@ -19,6 +22,7 @@ const Home = ({navigation}) => {
           bannerTitle={'인기 강좌'}
           bannerDesc={'"제코베 인기 강좌들을 모았어요"'}
         />
+        <Admob />
         <HomeVideoComponent
           navigation={navigation}
           playListId={'JECOBAE_APP'}

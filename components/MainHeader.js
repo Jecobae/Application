@@ -1,12 +1,19 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {Image, View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  SafeAreaView,
+  Image,
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 import {normalize} from 'react-native-elements';
 import palette from '../style/palette';
 
 const MainHeader = ({navigation}) => {
   return (
-    <View style={style.headerBox}>
+    <SafeAreaView style={style.headerBox}>
       {/* <TouchableOpacity onPress={() => navigation.navigate('Home')}> */}
       <Image
         source={require('./../images/logo.png')}
@@ -28,7 +35,7 @@ const MainHeader = ({navigation}) => {
           <Text style={style.headerMenu}>라이선스</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
