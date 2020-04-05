@@ -8,8 +8,7 @@ import env from '../../env.config';
 const Home = ({navigation}) => {
   // console.log(env);
   return (
-    <SafeAreaView
-      style={{flex: 1, backgroundColor: '#FFF', paddingHorizontal: 8 }}>
+    <SafeAreaView style={{flex: 1, backgroundColor: '#FFF'}}>
       <ScrollView>
         <PlayingVideoComponent
           navigation={navigation}
@@ -22,7 +21,6 @@ const Home = ({navigation}) => {
           bannerTitle={'인기 강좌'}
           bannerDesc={'"제코베 인기 강좌들을 모았어요"'}
         />
-        <Admob />
         <HomeVideoComponent
           navigation={navigation}
           playListId={'JECOBAE_APP'}
@@ -30,6 +28,7 @@ const Home = ({navigation}) => {
           bannerDesc={'"제코베에서만 볼 수 있는 강좌들을 모았어요"'}
         />
       </ScrollView>
+        <Admob />
     </SafeAreaView>
   );
 };

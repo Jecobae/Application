@@ -1,6 +1,8 @@
 import {createStackNavigator} from 'react-navigation-stack';
 import SheetMain from '../../CheatSheet/SheetMain';
 import Sheet from '../../CheatSheet/Sheet';
+import stackNavigationConfig from '../NavigationConfig/StackNavigationConfig';
+
 const MainStack = createStackNavigator(
   {
     SheetMain: {
@@ -10,10 +12,7 @@ const MainStack = createStackNavigator(
       screen: Sheet,
     },
   },
-  {
-    headerMode: 'none',
-    initialRouteName: 'SheetMain',
-  },
+  {...stackNavigationConfig, headerMode: 'none', initialRouteName: 'SheetMain'},
 );
 
 export default MainStack;

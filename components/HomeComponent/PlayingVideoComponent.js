@@ -99,6 +99,7 @@ const style = StyleSheet.create({
   bannerHeader: {
     marginTop: 15,
     marginLeft: 10,
+    paddingHorizontal: 5,
   },
   bannerTitle: {
     fontSize: normalize(17),

@@ -1,8 +1,8 @@
-import React from 'react';
 import {createStackNavigator} from 'react-navigation-stack';
 import Home from '../../HomeComponent/Home';
 import LectureList from '../../LectureComponent/LectureList';
 import LectureVideo from '../../LectureComponent/LectureVideo';
+import stackNavigationConfig from '../NavigationConfig/StackNavigationConfig';
 
 const HomeStack = createStackNavigator(
   {
@@ -16,10 +16,7 @@ const HomeStack = createStackNavigator(
       screen: LectureVideo,
     },
   },
-  {
-    headerMode: 'none',
-    initialRouteName: 'Home',
-  },
+  {...stackNavigationConfig, headerMode: 'none', initialRouteName: 'Home'},
 );
 
 export default HomeStack;

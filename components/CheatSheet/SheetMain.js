@@ -51,9 +51,7 @@ const SheetMain = ({navigation}) => {
         numColumns={3}
         style={{marginBottom: 50}}
       />
-      <View style={{flex: 1}}>
-        <Admob />
-      </View>
+      <Admob />
     </View>
   );
 };

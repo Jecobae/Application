@@ -1,11 +1,11 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {View} from 'react-native';
 import {BannerAd, BannerAdSize, TestIds} from '@react-native-firebase/admob';
 import env from '../env.config';
 
 function Admob() {
   return (
-    <View style={style.container}>
+    <View style={{alignItems: 'center', justifyContent: 'center'}}>
       <BannerAd
         unitId={env.admob.bannerId}
         size={BannerAdSize.BANNER}
@@ -23,11 +23,4 @@ function Admob() {
   );
 }
 
-const style = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 export default Admob;

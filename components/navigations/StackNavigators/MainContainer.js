@@ -9,7 +9,6 @@ import BottomNavigation from '../BottomNavigation';
 import License from '../../License';
 import MainHeader from '../../MainHeader';
 import CheatSheet from './CheatSheetStackNavigation';
-import { normalize } from 'react-native-elements';
 
 const HomeStackNavigator = createStackNavigator(
   {
@@ -31,12 +30,12 @@ const HomeStackNavigator = createStackNavigator(
   },
   {
     defaultNavigationOptions: ({navigation}) => ({
+      header: () => <MainHeader navigation={navigation} />,
       gestureEnabled: true,
       gestureDirection: 'horizontal',
       gestureResponseDistance: {
         horizontal: 250,
       },
-      header: () => <MainHeader navigation={navigation} />,
       cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
       headerStyleInterpolator: HeaderStyleInterpolators.forUIKit,
     }),

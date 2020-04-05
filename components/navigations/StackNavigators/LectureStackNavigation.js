@@ -2,6 +2,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 import LectureCategory from '../../LectureComponent/LectureCategory';
 import LectureList from '../../LectureComponent/LectureList';
 import LectureVideo from '../../LectureComponent/LectureVideo';
+import stackNavigationConfig from '../NavigationConfig/StackNavigationConfig';
 
 const LectureStackNavigation = createStackNavigator(
   {
@@ -18,6 +19,7 @@ const LectureStackNavigation = createStackNavigator(
     },
   },
   {
+    ...stackNavigationConfig,
     headerMode: 'none',
     initialRouteName: 'LectureCategory',
   },
