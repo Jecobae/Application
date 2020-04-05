@@ -1,9 +1,8 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, Platform, View} from 'react-native';
+import {SafeAreaView, ScrollView} from 'react-native';
 import HomeVideoComponent from './HomeVideoComponent';
 import PlayingVideoComponent from './PlayingVideoComponent';
 import Admob from '../Admob';
-import env from '../../env.config';
 
 const Home = ({navigation}) => {
   // console.log(env);
@@ -28,7 +27,7 @@ const Home = ({navigation}) => {
           bannerDesc={'"제코베에서만 볼 수 있는 강좌들을 모았어요"'}
         />
       </ScrollView>
-        <Admob />
+      <Admob />
     </SafeAreaView>
   );
 };

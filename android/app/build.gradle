@@ -7,7 +7,7 @@ project.ext.envConfigFiles = [
         release: ".env", //release Test
         productionrelease: ".env.production" // deploy
 ]
-
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 import com.android.build.OutputFile
 
@@ -175,11 +175,11 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
         productionrelease {
+            matchingFallbacks = ['debug', 'release']
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             shrinkResources enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-            matchingFallbacks = ['debug', 'release']
         }
     }
     // applicationVariants are e.g. debug, release
@@ -212,6 +212,7 @@ dependencies {
         def hermesPath = "../../node_modules/hermes-engine/android/"
         debugImplementation files(hermesPath + "hermes-debug.aar")
         releaseImplementation files(hermesPath + "hermes-release.aar")
+        productionreleaseImplementation files(hermesPath + "hermes-productionrelease.aar")
     } else {
         implementation jscFlavor
     }
@@ -223,5 +224,5 @@ task copyDownloadableDepsToLibs(type: Copy) {
     from configurations.compile
     into 'libs'
 }
-apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
